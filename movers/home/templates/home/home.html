@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div>
+    {% for post in posts %}
+        <article class="p-3 mb-2 bg-white text-dark border border-primary rounded">
+            <h1 class="card-title">{{ post.title }}</h1>
+            <p>By <a class="mr-2">{{ post.author }}</a> on <small class="text-muted">{{post.date_posted | date:"F d, Y"}}</small></p>
+            <p>{{ post.content }}</p>
+        </article>
+    {% endfor %}
+</div>
+{%endblock content %}
