@@ -31,7 +31,7 @@
             </li>
             <li><a href="#"><i class="fas fa-stream">View orders </i></a>
             </li>
-            <li><a href="#"><i class="fas fa-sliders">User Profile</i></a> 
+            <li><a href="{% url 'profile' %}"><i class="fas fa-sliders">User Profile</i></a> 
             </li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}"><i class="fas fa-envelope">Log out</i></a>
