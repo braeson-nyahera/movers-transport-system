@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div>
+        <article class="p-3 mb-2 bg-white text-dark border border-primary rounded" id="article_bars">
+            <div class="info_bar">
+                <img class="rounded-circle" id="icon_img" src="{{object.author.profile.image.url}}">
+                <p>By <a class="mr-2">{{ object.author }}</a> on <small class="text-muted">{{object.date_posted | date:"F d, Y"}}</small></p>
+            </div>
+            <h1 class="card-title">{{ object.title }}</h1>
+            <p>{{ object.content }}</p>
+        </article>
+</div>
+{%endblock content %}
