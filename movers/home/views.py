@@ -48,7 +48,7 @@ def landing(request):
     return render(request, 'home/landing.html')
 
 def base(request):
-    return render(request, 'home/base.html')
+    return render(request, 'home/new.html')
 
 def about(request):
     return render(request,'home/about.html',{'title':'About'})
