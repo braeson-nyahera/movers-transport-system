@@ -9,13 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/css/style.css'%}">
+  <script src="https://cdn.tailwindcss.com"></script>
   {% if title %}
   <title> {{ title }}</title>
   {% else %}
   <title>Superlink</title>
   {% endif %}
 </head>
-<body>
+<body class="mb-2 border bg-neutral-100 p-4 rounded-lg max-w-full bg-neutral-100">
   <header class="main_header">
       {% if title %}
           {{ title }}

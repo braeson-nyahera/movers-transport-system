@@ -3,7 +3,7 @@
 <div>
     {% for order in order_form %}
         {% if order.author_id == request.user.id %}
-            <article class="p-3 mb-2 bg-white text-dark border border-primary rounded" id="article_bars">
+            <article class="mb-2 border bg-neutral-100 p-4 rounded-lg max-w-full bg-neutral-100" id="article_bars">
                 <h1 class="card-title"><a href="#">{{ order.descriptive_text }}</a></h1>
                 <div class="info_bar">
                 <p>Order ID: {{ order.id }}</p>

@@ -4,12 +4,12 @@
     <div class="content">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Make Order</legend>
+            <fieldset class="mx-auto max-w-md rounded-lg bg-gradient-to-tr from-pink-300 to-blue-300 p-0.5 shadow-lg">
+                <legend >Make Order</legend>
                 {{ order_form.as_p }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Make Order</button>
+                <button class="py-2.5 px-6 rounded-lg text-sm font-medium text-white bg-teal-600" type="submit">Make Order</button>
             </div>
         </form>
     </div>
