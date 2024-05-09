@@ -1,19 +1,25 @@
 {% extends "home/base.html" %}
 {% block content %}
 <div>
-    {% for order in order_form %}
-        {% if order.author_id == request.user.id %}
-            <article class="mb-2 border bg-neutral-100 p-4 rounded-lg max-w-full bg-neutral-100" id="article_bars">
-                <h1 class="card-title"><a href="#">{{ order.descriptive_text }}</a></h1>
-                <div class="info_bar">
-                <p>Order ID: {{ order.id }}</p>
-                </div>
-                <div>
-                <p> Date requested: <small class="text-muted">{{ order.date_ordered }}</small></p>
-                </div>
-                <p>From:{{ order.source }}  To:{{ order.destination }}</p>
-            </article>
-        {% endif %}
-    {% endfor %}
+    {% if order %}
+        {% for order in order_form %}
+            {% if order.author_id == request.user.id %}
+                <article class="mb-2 border bg-neutral-100 p-4 rounded-lg max-w-full bg-neutral-100" id="article_bars">
+                    <h1 class="card-title"><a href="#">{{ order.descriptive_text }}</a></h1>
+                    <div class="info_bar">
+                    <p>Order ID: {{ order.id }}</p>
+                    </div>
+                    <div>
+                    <p> Date requested: <small class="text-muted">{{ order.date_ordered }}</small></p>
+                    </div>
+                    <p>From:{{ order.source }}  To:{{ order.destination }}</p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h2>Ooops! No order found</h2>
+        <h2>Would you like to make your first order?</h2>
+        <a href="{% url 'order' %}">Click here</a>
+    {% endif %}
 </div>
 {%endblock content %}
