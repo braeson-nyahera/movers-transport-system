@@ -5,13 +5,6 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView
 
 # Create your views here.
 
-def home(request):
-    context={
-        'posts':Post.objects.all(),
-        'title':'home'
-    }
-    return render(request,'home/home.html', context,)
-
 class PostListView(ListView):
     model=Post
     template_name='home/home.html'

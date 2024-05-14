@@ -18,7 +18,7 @@ def new_order(request):
             new.author=author
             new.save()
             messages.success(request, f'Order made successfully. Please wait for approval')
-            return redirect('home')
+            return redirect('orders_list')
     else:
         order_form=make_order()
     

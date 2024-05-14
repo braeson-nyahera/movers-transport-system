@@ -6,4 +6,4 @@ class make_order(forms.ModelForm):
     
     class Meta:
         model=order
-        fields=['source','destination','approx_weight','descriptive_text']
+        fields=['order_title','source','destination','approx_weight','descriptive_text']
