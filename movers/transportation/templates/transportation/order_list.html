@@ -4,8 +4,8 @@
     {% if order_form %}
         {% for order in order_form %}
             {% if order.author_id == request.user.id %}
-                <article class="mb-2 border bg-[#818cf8] p-4 rounded-lg max-w-full bg-[#818cf8]" id="article_bars">
-                    <h1 class=" font-sans text-2xl font-bold card-title"><a href="#">{{ order.order_title }}</a></h1>
+                <article class="mb-2 border bg-[#818cf8] p-4 rounded-lg max-w-full bg-[#818cf8]">
+                    <h1 class=" font-sans text-2xl font-bold card-title"><a href="{% url 'order-detail' order.id %}">{{ order.order_title }}</a></h1>
                     <div class="info_bar">
                     <p class="font-semibold">Order ID: {{ order.id }}</p>
                     </div>

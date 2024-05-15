@@ -29,3 +29,6 @@ class OrderListView(ListView):
     template_name='transportation/order_list.html'
     context_object_name='order_form'
     ordering=['-date_ordered']
+
+class OrderDetailView(DetailView):
+    model=order

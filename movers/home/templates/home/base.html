@@ -18,14 +18,10 @@
 </head>
 <body class="mb-2 border bg-neutral-100 rounded-lg max-w-full bg-neutral-100">
   <header class="main_header">
-      {% if title %}
-          {{ title }}
-      {% else %}
-          Superlink Transport Limited
-      {% endif %}
+    Superlink Transport Limited
   </header>
 <main>
-  <nav class="sidebar">
+  <nav class="sidebar ">
     <div class="sidebar-top-wrapper">
       <div class="sidebar-top">
         <a href="#" class="logo__wrapper">
@@ -195,11 +191,14 @@
     </div>
   </nav>
   
-<section class="right-section">
+<section class="right-section relative">
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
+            <div class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 alert alert-{{ message.tags }}" role="alert">
+              <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+              </svg>
+              <span class="mx-auto"> {{ message }} </span>
             </div>
         {% endfor %}
     {% endif %}
