@@ -49,13 +49,10 @@ header{
 }
 
 .sidebar {
-  z-index: 1;
-  position: sticky;
   margin-top: 0.2rem;
-  top: 10.5vh;
-  left: 2vh;
+  top: 10vh;
   height: 90vh;
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
   padding-bottom: 0;
   border-radius: 1rem;
   max-width: 18rem;
@@ -396,9 +393,8 @@ body.collapsed .expand-btn svg {
 }
 
 .right-section{
-  position: absolute;
+  position: relative;
   height: 100vh;
-  right: 0;
   transition: all .5s;
   margin-top: 10vh;
   margin-left: 1.2rem;
@@ -438,4 +434,8 @@ article .info_bar img{
   border-radius: 10px;
   padding: 0.5rem 1rem 1rem 0.5rem;
   margin-bottom: 5px;
+}
+
+.map{
+  max-height: 10px;
 }

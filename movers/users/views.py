@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 # Create your views here.
 def register(request):
@@ -33,6 +34,7 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
+    
     context={
         'u_form':u_form,
         'p_form':p_form,
@@ -40,3 +42,7 @@ def profile(request):
     
 
     return render(request,'users/profile.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('logout')

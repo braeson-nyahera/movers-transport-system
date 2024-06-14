@@ -17,11 +17,11 @@
   {% endif %}
 </head>
 <body class="mb-2 border bg-neutral-100 rounded-lg max-w-full bg-neutral-100">
-  <header class="main_header">
+  <header class="main_header sticky">
     Superlink Transport Limited
   </header>
-<main>
-  <nav class="sidebar ">
+<main class="relative">
+  <nav class="sidebar sticky">
     <div class="sidebar-top-wrapper">
       <div class="sidebar-top">
         <a href="#" class="logo__wrapper">
@@ -191,7 +191,7 @@
     </div>
   </nav>
   
-<section class="right-section relative">
+<section class="right-section relative ">
     {% if messages %}
         {% for message in messages %}
             <div class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 alert alert-{{ message.tags }}" role="alert">
