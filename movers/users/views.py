@@ -45,4 +45,7 @@ def profile(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('logout')
+    return redirect('logout-done')
+
+def logout_done(request):
+    return render(request,'users/logout.html')

@@ -49,7 +49,7 @@ def new_order(request):
     
     return render(request, 'transportation/make_order.html',{'order_form':order_form})
 
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin,ListView):
     model=order
     template_name='transportation/order_list.html'
     context_object_name='order_form'
