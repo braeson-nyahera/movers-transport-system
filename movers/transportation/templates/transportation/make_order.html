@@ -4,18 +4,22 @@
     <div class="content">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="mx-auto max-w-full rounded-lg bg-[#94a3b8] p-5 shadow-lg">
+            <fieldset class="mx-auto max-w-full rounded-lg bg-[#94a3b8] p-5 shadow-lg flex">
                 <legend class="bg-[#1e293b] text-white text-xl font-bold font-mono p-1 rounded-lg" >Make Order</legend>
-                <p>Order title: {{ order_form.order_title}}</p>
-                <br>
-                <p>Source: {{ order_form.source}}</p>
-                <br>
-                <p>Destination: {{ order_form.destination}}</p>
-                <br>
-                <p>Approximate Weight: {{ order_form.approx_weight}}</p>
-                <p>More information on the goods:</p>
-                <p> {{ order_form.descriptive_text}}</p>
-                <!-- <p class="map box-border h-10 w-10">{{ m |safe }}</p> -->
+                <div class="flex-1">
+                    <p>Order title: {{ order_form.order_title}}</p>
+                    <br>
+                    <p>Source: {{ order_form.source}}</p>
+                    <br>
+                    <p>Destination: {{ order_form.destination}}</p>
+                    <br>
+                    <p>Approximate Weight: {{ order_form.approx_weight}}</p>
+                    <p>More information on the goods:</p>
+                    <p> {{ order_form.descriptive_text}}</p>
+                </div>
+                <div class="flex-1">
+                    <p class="map box-border h-10 w-10">{{ m |safe }}</p>
+                </div>
             </fieldset>
             <hr>
             <hr>

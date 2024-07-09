@@ -4,6 +4,13 @@
     
     <article class="mb-2 border bg-[#818cf8] p-4 rounded-lg max-w-full bg-[#818cf8]" id="article_bars">
         <h1 class=" font-sans text-2xl font-bold card-title">{{ order.order_title }}</h1>
+        {% if order.status == 'pending approval' %} 
+            <span class="float-right bg-orange-400 font-semibold p-2 rounded-full object-right">{{ order.status }}</span>
+        {% elif order.status == 'in-transit' %}
+            <span class="float-right text-white bg-gray-500 font-semibold p-2 rounded-full object-right">{{ order.status }}</span>
+        {% else %}
+            <span class="float-right bg-green-400 font-semibold p-2 rounded-full object-right">{{ order.status }}</span>
+        {% endif %}
             <div class="info_bar">
                 <p class="font-semibold">Order ID: {{ order.id }}</p>
             </div>

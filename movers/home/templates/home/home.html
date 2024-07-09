@@ -11,5 +11,16 @@
             <p>{{ post.content }}</p>
         </article>
     {% endfor %}
+    <div class="flex">
+        <div class="bg-green-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            Completed orders: {{ orders | length }}
+        </div>
+        <div class="bg-gray-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            In Transit: N/A
+        </div>
+        <div class="bg-orange-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            Pending approval: N/A
+        </div>
+    </div>
 </div>
 {%endblock content %}

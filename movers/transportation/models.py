@@ -11,6 +11,12 @@ class order(models.Model):
     descriptive_text=models.TextField(max_length=1000,null=True, blank=True)
     date_ordered=models.DateTimeField(default=timezone.now)
     author= models.ForeignKey(User, on_delete=models.CASCADE)
+    transport_status={
+        ('pending approval', 'pending approval' ),
+        ('in-transit','in-transit' ),
+        ('completed', 'completed'),
+    }
+    status=models.CharField(max_length=50, choices=transport_status,default='pending approval')
     
     def __str__(self):  
         return self.order_title

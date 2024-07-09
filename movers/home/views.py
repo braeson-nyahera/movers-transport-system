@@ -1,15 +1,21 @@
+from typing import Any
 from django.shortcuts import render
 from .models import Post
+from transportation.models import order
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
-from django.views.generic import ListView,DetailView,CreateView,UpdateView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView, TemplateView
 
 # Create your views here.
 
-class PostListView(ListView):
-    model=Post
+class HomeView(TemplateView):
     template_name='home/home.html'
-    context_object_name='posts'
-    ordering=['-date_posted']
+    #ordering=['-date_posted']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts']=Post.objects.all()
+        context['orders']=order.objects.all()
+        return context
 
 class PostDetailView(DetailView):
     model=Post

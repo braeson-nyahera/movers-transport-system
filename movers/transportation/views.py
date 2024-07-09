@@ -14,16 +14,16 @@ def new_order(request):
     if request.method == 'POST':
         order_form=make_order(request.POST)
         #Create map object
-        # location=geocoder.osm(address)
-        # lat=location.lat
-        # lng=location.lng
-        #country=location.country
+        location=geocoder.osm(address)
+        lat=location.lat
+        lng=location.lng
+        country=location.country
 
-        # m = folium.Map(location=[12,-19],zoom_start=8)
+        m = folium.Map(location=[12,-19],zoom_start=8)
 
-        # folium.Marker([lat,lng], tooltip=address).add_to(m)
+        folium.Marker([lat,lng], tooltip=address).add_to(m)
         
-        # m = m._repr_html_()
+        m = m._repr_html_()
 
         if order_form.is_valid():
             author=request.user
@@ -33,16 +33,16 @@ def new_order(request):
             messages.success(request, f'Order made successfully. Please wait for approval')
             return redirect('orders_list')
     else:
-        # location=geocoder.osm(address)
-        # lat=location.lat
-        # lng=location.lng
-        # #country=location.country
+        location=geocoder.osm(address)
+        lat=location.lat
+        lng=location.lng
+        #country=location.country
 
-        # m = folium.Map(location=[12,-19],zoom_start=6)
+        m = folium.Map(location=[12,-19],zoom_start=6)
 
-        # folium.Marker([lat,lng], tooltip=address).add_to(m)
+        folium.Marker([lat,lng], tooltip=address).add_to(m)
         
-        # m = m._repr_html_()
+        m = m._repr_html_()
         
         order_form=make_order()
         
