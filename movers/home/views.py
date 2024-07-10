@@ -14,7 +14,9 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts']=Post.objects.all()
-        context['orders']=order.objects.all()
+        context['complete_orders']=order.objects.filter(status='completed')
+        context['in_transit_orders']=order.objects.filter(status='in-transit')
+        context['pending_approval_orders']=order.objects.filter(status='pending approval')
         return context
 
 class PostDetailView(DetailView):

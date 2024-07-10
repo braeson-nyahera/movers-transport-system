@@ -53,7 +53,9 @@ class OrderListView(LoginRequiredMixin,ListView):
     model=order
     template_name='transportation/order_list.html'
     context_object_name='order_form'
-    ordering=['-date_ordered']
+    
+    def get_queryset(self):
+        return order.objects.filter(author=self.request.user).order_by('-date_ordered')
 
 class OrderDetailView(DetailView):
     model=order

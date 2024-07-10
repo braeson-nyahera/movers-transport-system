@@ -25,9 +25,13 @@
             {% endif %}
         {% endfor %}
     {% else %}
-        <h2>Ooops! No order found</h2>
-        <h2>Would you like to make your first order?</h2>
-        <a href="{% url 'order' %}" class="py-2.5 px-6 rounded-lg text-sm font-medium text-white bg-teal-600">Click here</a>
+        <div class="flex justify-center items-center">
+            <div class="grid place-items-center rounded w-1/2 m-3 p-4 bg-blue-200">
+            <div><h2 class="font-bold m-2">Ooops! No order found</h2></div>
+            <div><h2 class="m-1">Would you like to make your first order?</h2></div>
+            <div><a href="{% url 'order' %}" class=" m-5 py-2.5 px-6 rounded-lg text-sm font-medium text-white bg-teal-600">Click here</a></div>
+            </div>
+        </div>
     {% endif %}
 </div>
 {% endblock content %}
