@@ -11,15 +11,15 @@
             <p>{{ post.content }}</p>
         </article>
     {% endfor %}
-    <div class="flex">
-        <div class="bg-orange-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
-            Pending approval: {{ pending_approval_orders | length }}
+    <div class="flex h-15 text-2xl">
+        <div class="bg-orange-500 h-15 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            Pending approval: <span class="p-2 border-4 rounded-full border-gray-50">{{ pending_approval_orders | length }}</span>
         </div>
-        <div class="bg-gray-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
-            In Transit: {{ in_transit_orders | length }}
+        <div class="bg-gray-500 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            In Transit: <span class="p-2 border-4 rounded-full border-gray-50">{{ in_transit_orders | length }}</span>
         </div>
-        <div class="bg-green-500 h-25 w-fit p-4 rounded flex-1 font-bold text-white m-3">
-            Completed orders: {{ complete_orders | length }}
+        <div class="bg-green-500 w-fit p-4 rounded flex-1 font-bold text-white m-3">
+            Completed orders: <span class="p-2 border-4 rounded-full border-gray-50">{{ complete_orders | length }}</span>
         </div>
     </div>
 </div>

@@ -6,24 +6,26 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from .models import order
 import folium, geocoder
+from movers import settings
 
 # Create your views here.
 @login_required
 def new_order(request):
+    key= settings.MY_GOOGLE_API
     address='nairobi'
     if request.method == 'POST':
         order_form=make_order(request.POST)
         #Create map object
-        location=geocoder.osm(address)
-        lat=location.lat
-        lng=location.lng
-        country=location.country
+        # location=geocoder.osm(address)
+        # lat=location.lat
+        # lng=location.lng
+        # country=location.country
 
-        m = folium.Map(location=[12,-19],zoom_start=8)
+        # m = folium.Map(location=[12,-19],zoom_start=8)
 
-        folium.Marker([lat,lng], tooltip=address).add_to(m)
+        # folium.Marker([lat,lng], tooltip=address).add_to(m)
         
-        m = m._repr_html_()
+        # m = m._repr_html_()
 
         if order_form.is_valid():
             author=request.user
@@ -33,21 +35,25 @@ def new_order(request):
             messages.success(request, f'Order made successfully. Please wait for approval')
             return redirect('orders_list')
     else:
-        location=geocoder.osm(address)
-        lat=location.lat
-        lng=location.lng
-        #country=location.country
+        # location=geocoder.osm(address)
+        # lat=location.lat
+        # lng=location.lng
+        # #country=location.country
 
-        m = folium.Map(location=[12,-19],zoom_start=6)
+        # m = folium.Map(location=[12,-19],zoom_start=6)
 
-        folium.Marker([lat,lng], tooltip=address).add_to(m)
+        # folium.Marker([lat,lng], tooltip=address).add_to(m)
         
-        m = m._repr_html_()
+        # m = m._repr_html_()
         
         order_form=make_order()
-        
+
+    context={
+        'order_form':order_form,
+        'key':key,
+    }   
     
-    return render(request, 'transportation/make_order.html',{'order_form':order_form})
+    return render(request, 'transportation/make_order.html',context)
 
 class OrderListView(LoginRequiredMixin,ListView):
     model=order

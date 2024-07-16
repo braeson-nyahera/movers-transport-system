@@ -134,3 +134,5 @@ CRISPY_TEMPLATE_PACK= 'bootstrap4'
 
 LOGIN_REDIRECT_URL='home'
 LOGIN_URL='login'
+
+MY_GOOGLE_API = os.environ.get('GOOGLE_MAPS_API')
